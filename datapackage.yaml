@@ -2,7 +2,7 @@ name: atmospheric-carbon-dioxide-trends
 title: Atmospheric Carbon Dioxide Trends
 sources:
   - title: Global Monitoring Laboratory
-  - path: https://gml.noaa.gov/ccgg/trends/
+    path: https://gml.noaa.gov/ccgg/trends/
 resources:
   - name: co2-mm-gl
     path: https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_trend_gl.csv
