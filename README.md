@@ -1,2 +1,3 @@
-# atmospheric-carbon-dioxide-trends
-Trends in Atmospheric Carbon Dioxide Dataset
+# Atmospheric Carbon Dioxide Trends
+
+Frictionless dataset covering the [trends in Atmospheric Carbon Dioxide Dataset](https://gml.noaa.gov/ccgg/trends/).
