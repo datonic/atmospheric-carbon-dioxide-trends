@@ -1,0 +1,37 @@
+name: atmospheric-carbon-dioxide-trends
+title: Atmospheric Carbon Dioxide Trends
+sources:
+  - title: Global Monitoring Laboratory
+  - path: https://gml.noaa.gov/ccgg/trends/
+resources:
+  - name: co2-mm-gl
+    path: https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_trend_gl.csv
+    description: Estimated CO2 Global Trend Daily Values
+    format: csv
+    mediatype: text/csv
+    dialect:
+      headerRows:
+        - 56
+    schema:
+      fields:
+        - name: year
+          type: string
+          title: Year
+        - name: month
+          type: string
+          title: Month
+        - name: decimal
+          type: string
+          title: Decimal Date
+        - name: average
+          type: string
+          title: Average
+        - name: average_unc
+          type: string
+          title: Average Uncertainty
+        - name: trend
+          type: string
+          title: Trend
+        - name: trend_unc
+          type: string
+          title: Trend Uncertainty
