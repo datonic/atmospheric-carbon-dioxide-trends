@@ -17,3 +17,15 @@ jobs:
         run: pip install frictionless
       - name: Describe
         run: frictionless describe https://raw.githubusercontent.com/datonic/atmospheric-carbon-dioxide-trends/main/datapackage.yaml --stats
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install frictionless
+        run: pip install frictionless
+      - name: Describe
+        run: frictionless extract https://raw.githubusercontent.com/datonic/atmospheric-carbon-dioxide-trends/main/datapackage.yaml --csv > dataset.csv
+      - name: IPFS Publish
+        uses: kelindi/estuary-upload-action@main
+        with:
+          access_token: ${{ secrets.ESTUARY_ACCESS_TOKEN }}
+          path_to_add:  dataset.csv
