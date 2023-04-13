@@ -20,6 +20,7 @@ jobs:
   backup:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Install frictionless
         run: pip install frictionless
       - name: Describe
@@ -31,5 +32,12 @@ jobs:
           web3_token: ${{ secrets.WEB3_STORAGE_TOKEN }}
           path_to_add: "dataset.csv"
       - name: Replace archive_cid
-        run: >
+        run: |
           sed -i "s/archive_cid: .*/archive_cid: ${{ steps.web3.outputs.cid }}/g" datapackage.yaml
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "actions@users.noreply.github.com"
+          git add datapackage.yaml
+          git commit -m "chore: :id: update CID"
+          git push
