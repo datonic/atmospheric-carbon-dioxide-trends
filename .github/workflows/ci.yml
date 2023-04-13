@@ -24,8 +24,10 @@ jobs:
         run: pip install frictionless
       - name: Describe
         run: frictionless extract https://raw.githubusercontent.com/datonic/atmospheric-carbon-dioxide-trends/main/datapackage.yaml --csv > dataset.csv
-      - name: IPFS Publish
-        uses: kelindi/estuary-upload-action@main
+      - name: Upload to IPFS
+        uses: web3-storage/add-to-web3@v2
+        id: web3
         with:
-          access_token: ${{ secrets.ESTUARY_ACCESS_TOKEN }}
-          path_to_add:  dataset.csv
+          web3_token: ${{ secrets.WEB3_STORAGE_TOKEN }}
+          path_to_add: "database"
+      - run: echo ${{ steps.web3.outputs.url }}
