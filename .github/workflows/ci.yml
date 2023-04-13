@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  describe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install frictionless
+        run: pip install frictionless
+      - name: Describe
+        run: frictionless describe https://raw.githubusercontent.com/datonic/atmospheric-carbon-dioxide-trends/main/datapackage.yaml --stats
