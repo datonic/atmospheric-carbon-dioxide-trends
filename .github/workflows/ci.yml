@@ -31,9 +31,9 @@ jobs:
         with:
           web3_token: ${{ secrets.WEB3_STORAGE_TOKEN }}
           path_to_add: "dataset.csv"
-      - name: Replace archive_cid
+      - name: Replace archiveCID
         run: |
-          sed -i "s/archive_cid: .*/archive_cid: ${{ steps.web3.outputs.cid }}/g" datapackage.yaml
+          sed -i "s/archiveCID: .*/archiveCID: ${{ steps.web3.outputs.cid }}/g" datapackage.yaml
       - name: Commit and push changes
         run: |
           git config --global user.name "GitHub Action"
