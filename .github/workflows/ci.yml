@@ -37,7 +37,7 @@ jobs:
       - name: Replace IPFS CID
         run: |
           sed -E -i'' "s|CID-[[:alnum:]]+|${{ steps.web3.outputs.cid }}|g" README.md
-          sed -i 's|https://[^)]*/\(.*\)|https://\1|' README.md
+          sed -E -i'' "s|https://[[:alnum:]]+.ipfs|${{ steps.web3.outputs.cid }}|g" README.md
       - name: Commit and push changes
         run: |
           git config --global user.name "GitHub Action"
