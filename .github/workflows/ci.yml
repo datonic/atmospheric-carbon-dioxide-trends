@@ -34,6 +34,9 @@ jobs:
       - name: Replace archiveCID
         run: |
           sed -i "s/archiveCID: .*/archiveCID: ${{ steps.web3.outputs.cid }}/g" datapackage.yaml
+      - name: Replace IPFS CID
+        run: |
+          sed -E -i'' "s|CID-[[:alnum:]]+|${{ steps.web3.outputs.cid }}|g" README.md
       - name: Commit and push changes
         run: |
           git config --global user.name "GitHub Action"
