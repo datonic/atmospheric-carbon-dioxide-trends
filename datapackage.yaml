@@ -8,7 +8,7 @@ sources:
 resources:
   - name: co2-mm-gl
     path: https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_trend_gl.csv
-    archiveCID: bafkreibz3s75gfk62ct77k5lns32ymetiadwc7twjvs555ikiepwf5kaee
+    archiveCID: bafkreigqkamsu32hqzqxn3u7237nqzrlkghg23edvrnak3hvbsj3epf6la
     description: Estimated CO2 Global Trend Daily Values
     format: csv
     mediaType: text/csv
